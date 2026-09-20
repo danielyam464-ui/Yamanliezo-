@@ -6,67 +6,8 @@
 <title>YAMANLIEZO</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a001a;height:100vh;overflow:hidden;font-family:Arial}
-#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:1}
-.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
-h1{font-size:5.5rem;letter-spacing:15px;font-weight:900;text-shadow:0 0 25px #8a2be2}
-.frase{margin-top:12px;font-size:1.2rem;letter-spacing:3px;font-style:italic}
-.btn{margin-top:35px;padding:15px 50px;border:1px solid white;color:white;text-decoration:none;letter-spacing:5px;background:rgba(0,0,0,0.4)}
-</style>
-</head>
-<body>
-
-<video id="bg" autoplay loop playsinline muted>
-<source src="https://files.catbox.moe/zhkp8y.mp4" type="video/mp4">
-</video>
-
-<!-- audio oculto que fuerza el sonido -->
-<audio id="aud" autoplay loop playsinline>
-<source src="https://files.catbox.moe/zhkp8y.mp4" type="video/mp4">
-</audio>
-
-<div class="overlay"></div>
-
-<div class="box">
-<h1>YAMANLIEZO</h1>
-<div class="frase">joven que es nada y todo para el</div>
-<a class="btn" href="https://sites.google.com/view/yamanliezo-el-inicio">ENTRAR A LA WEB</a>
-</div>
-
-<script>
-const v = document.getElementById('bg');
-const a = document.getElementById('aud');
-
-// TRUCO PARA QUE SUENE APENAS ENTRAS AL LINK
-function sonarSiOSi(){
-  v.muted = false;
-  v.volume = 1;
-  a.volume = 1;
-  a.muted = false;
-  
-  v.play();
-  a.play().catch(()=>{});
-
-  // fuerza con AudioContext
-  try{
-    const ctx = new (window.AudioContext || window.webkitAudioContext)();
-    if(ctx.state === 'suspended') ctx.resume();
-  }catch(e){}
-}
-
-window.addEventListener('load', ()=>{
-  sonarSiOSi();
-  setTimeout(sonarSiOSi, 200);
-  setTimeout(sonarSiOSi, 800);
-  setTimeout(sonarSiOSi, 2000);
-});
-
-// si Chrome lo bloquea, en cuanto muevas el mouse suena solo
-['mousemove','touchstart','scroll','keydown'].forEach(ev=>{
-  window.addEventListener(ev, sonarSiOSi, {once:true});
-});
-</script>
-
-</body>
-</html>
+body{background:#0a001a;height:100vh;overflow:hidden;font-family:'Segoe UI',Arial;color:white}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;filter:brightness(0.4)}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:radial-gradient(circle, rgba(138,43,226,0.25) 0%, rgba(0,0,0,0.8) 100%);z-index:1}
+.center{position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+h1{font-size:4rem;letter-spacing:12
