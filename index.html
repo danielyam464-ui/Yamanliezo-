@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YAMANLIEZO</title>
-<style>
-html,body{margin:0;padding:0;background:#000;color:#fff;height:100%;overflow:hidden;font-family:Arial}
-.center{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);text-align:center;z-index:10;width:90%}
-h1{font-size:50px;letter-spacing:10px;text-shadow:0 0 20px #8a2be2;margin:0}
-.sub{margin-top:15px;color:#d8b4fe;letter-spacing:3px;font-style:italic}
-#contador{margin-top:20px;opacity:0.6;letter-spacing:4px;font-size:12px}
-.pregunta{position:absolute;color:#fff;font-style:italic;opacity:0;animation:flota 3s forwards;z-index:5}
-@keyframes flota{0%{opacity:0}20%{opacity:0.8}80%{opacity:0.8}100%{opacity:0}}
-</style>
 </head>
-<body>
+<body style="background:black;margin:0;height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;font-family:Arial;">
 
-<div class="center">
-<h1>YAMANLIEZO</h1>
-<div class="sub">Un pensamiento más que nadie ve, solo tú</div>
-<div id="contador">REDIRIGIENDO EN 10...</div>
-</div>
+<h1 style="font-size:50px;letter-spacing:10px;margin:0;">YAMANLIEZO</h1>
+<p style="color:#d8b4fe;margin-top:10px;">Un pensamiento más que nadie ve, solo tú</p>
+<p id="c" style="margin-top:20px;opacity:0.6;">REDIRIGIENDO EN 10...</p>
 
 <script>
-const frases=["¿quién eres?","¿qué es nada?","¿qué es todo?","¿te conoces?","¿qué buscas?","¿qué es real?","solo sé que nada sé","¿a dónde vas?","¿por qué piensas así?","¿y si lo eres todo?"];
+// preguntas flotando
+var frases=["¿quién eres?","¿qué es nada?","¿qué es todo?","¿te conoces?","¿qué buscas?","solo sé que nada sé","¿a dónde vas?"];
+setInterval(function(){
+  var p=document.createElement("div");
+  p.textContent=frases[Math.floor(Math.random()*frases.length)];
+  p.style.position="fixed";
+  p.style.left=Math.random()*80+"%";
+  p.style.top=Math.random()*80+"%";
+  p.style.color="white";
+  p.style.opacity="0.7";
+  p.style.fontStyle="italic";
+  document.body.appendChild(p);
+  setTimeout(function(){p.remove()},2000);
+},500);
+
+// contador
+var n=10;
+setInterval(function(){
+  n--;
+  document.getElementById("c").textContent="REDIRIGIENDO EN "+n+"...";
+  if(n<=0) window.location.href="https://sites.google.com/view/yamanliezo-el-inicio";
+},1000);
+</script>
+
+</body>
+</html>
