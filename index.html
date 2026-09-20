@@ -5,49 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YAMANLIEZO</title>
 <style>
-  body {
-    margin: 0;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(135deg, #000000 0%, #1a0033 50%, #4b0082 100%);
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-  }
-  h1 {
-    font-size: 4rem;
-    letter-spacing: 10px;
-    margin: 0;
-    font-weight: 900;
-  }
-  p {
-    font-size: 1.3rem;
-    margin-top: 15px;
-    opacity: 0.8;
-    letter-spacing: 2px;
-    font-style: italic;
-  }
-  a {
-    margin-top: 40px;
-    padding: 12px 30px;
-    border: 1px solid white;
-    color: white;
-    text-decoration: none;
-    letter-spacing: 3px;
-    transition: 0.3s;
-  }
-  a:hover {
-    background: white;
-    color: black;
-  }
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;background:linear-gradient(135deg,#000 0%,#1a0033 50%,#4b0082 100%);color:white;font-family:Arial;text-align:center;padding:20px}
+h1{font-size:4rem;letter-spacing:10px;margin:0;font-weight:900}
+p{font-size:1.2rem;margin-top:10px;opacity:.8;letter-spacing:2px;font-style:italic}
+#video{margin-top:30px;width:325px;min-height:580px;border-radius:15px;border:2px solid #6a0dad;overflow:hidden}
 </style>
 </head>
 <body>
-  <h1>YAMANLIEZO</h1>
-  <p>joven filosófico yamanliezo</p>
-  <a href="https://sites.google.com/view/yamanliezo-el-inicio">ENTRAR</a>
+<h1>YAMANLIEZO</h1>
+<p>joven filosófico yamanliezo</p>
+
+<div id="video"></div>
+
+<script>
+fetch('https://www.tiktok.com/oembed?url=https://vt.tiktok.com/ZSqvyE7EF/')
+.then(r=>r.json())
+.then(data=>{
+document.getElementById('video').innerHTML = data.html;
+let s = document.createElement('script');
+s.src='https://www.tiktok.com/embed.js';
+document.body.appendChild(s);
+})
+</script>
+
 </body>
 </html>
