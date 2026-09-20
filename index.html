@@ -7,22 +7,25 @@
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#0a001a;height:100vh;overflow:hidden;font-family:Arial}
-#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#0a001a}
-.fallback{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;background:radial-gradient(circle at 50% 50%, #2a0a4a 0%, #0a001a 70%);display:none}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.4);z-index:1}
-.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;padding:20px}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:1}
+.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
 h1{font-size:5.5rem;letter-spacing:15px;font-weight:900;text-shadow:0 0 25px #8a2be2}
-.frase{margin-top:15px;font-size:1.25rem;letter-spacing:3px;font-style:italic;opacity:0.9}
+.frase{margin-top:12px;font-size:1.2rem;letter-spacing:3px;font-style:italic}
 .btn{margin-top:35px;padding:15px 50px;border:1px solid white;color:white;text-decoration:none;letter-spacing:5px;background:rgba(0,0,0,0.4)}
 </style>
 </head>
 <body>
 
-<video id="bg" autoplay loop muted playsinline crossorigin="anonymous">
+<video id="bg" autoplay loop playsinline muted>
 <source src="https://files.catbox.moe/zhkp8y.mp4" type="video/mp4">
 </video>
 
-<div class="fallback" id="fallback"></div>
+<!-- audio oculto que fuerza el sonido -->
+<audio id="aud" autoplay loop playsinline>
+<source src="https://files.catbox.moe/zhkp8y.mp4" type="video/mp4">
+</audio>
+
 <div class="overlay"></div>
 
 <div class="box">
@@ -33,34 +36,36 @@ h1{font-size:5.5rem;letter-spacing:15px;font-weight:900;text-shadow:0 0 25px #8a
 
 <script>
 const v = document.getElementById('bg');
-const fb = document.getElementById('fallback');
+const a = document.getElementById('aud');
 
-function activar(){
- v.muted = false;
- v.volume = 1;
- v.play().catch(()=>{
-   v.muted = true;
-   v.play();
-   document.body.addEventListener('click',()=>{
-     v.muted=false;
-     v.volume=1;
-     v.play();
-     fb.style.display='none';
-   },{once:true});
- });
+// TRUCO PARA QUE SUENE APENAS ENTRAS AL LINK
+function sonarSiOSi(){
+  v.muted = false;
+  v.volume = 1;
+  a.volume = 1;
+  a.muted = false;
+  
+  v.play();
+  a.play().catch(()=>{});
+
+  // fuerza con AudioContext
+  try{
+    const ctx = new (window.AudioContext || window.webkitAudioContext)();
+    if(ctx.state === 'suspended') ctx.resume();
+  }catch(e){}
 }
 
-v.addEventListener('error', ()=>{
-  fb.style.display='block';
-  console.log('video catbox fallo, mostrando fondo');
+window.addEventListener('load', ()=>{
+  sonarSiOSi();
+  setTimeout(sonarSiOSi, 200);
+  setTimeout(sonarSiOSi, 800);
+  setTimeout(sonarSiOSi, 2000);
 });
 
-v.addEventListener('canplay', ()=>{
-  fb.style.display='none';
+// si Chrome lo bloquea, en cuanto muevas el mouse suena solo
+['mousemove','touchstart','scroll','keydown'].forEach(ev=>{
+  window.addEventListener(ev, sonarSiOSi, {once:true});
 });
-
-window.addEventListener('load', activar);
-setTimeout(activar, 800);
 </script>
 
 </body>
