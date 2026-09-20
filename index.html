@@ -8,7 +8,13 @@
 
 <h1 style="font-size:50px;letter-spacing:10px;margin:0;">YAMANLIEZO</h1>
 <p style="color:#d8b4fe;margin-top:10px;">Un pensamiento más que nadie ve, solo tú</p>
-<p id="c" style="margin-top:20px;opacity:0.6;">REDIRIGIENDO EN 10...</p>
+
+<a href="https://sites.google.com/view/yamanliezo-el-inicio" style="margin-top:30px;padding:14px 45px;border:1px solid white;color:white;text-decoration:none;letter-spacing:5px;background:rgba(255,255,255,0.05);">ENTRAR A LA WEB</a>
+
+<!-- AUDIO TUYO -->
+<audio id="musica" autoplay loop playsinline>
+  <source src="https://files.catbox.moe/7hmxeg.mp4" type="video/mp4">
+</audio>
 
 <script>
 // preguntas flotando
@@ -23,17 +29,4 @@ setInterval(function(){
   p.style.opacity="0.7";
   p.style.fontStyle="italic";
   document.body.appendChild(p);
-  setTimeout(function(){p.remove()},2000);
-},500);
-
-// contador
-var n=10;
-setInterval(function(){
-  n--;
-  document.getElementById("c").textContent="REDIRIGIENDO EN "+n+"...";
-  if(n<=0) window.location.href="https://sites.google.com/view/yamanliezo-el-inicio";
-},1000);
-</script>
-
-</body>
-</html>
+  setTimeout(function(){p.remove
