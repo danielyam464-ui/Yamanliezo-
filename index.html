@@ -4,28 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YAMANLIEZO - Joven Filosófico</title>
-<meta name="description" content="YAMANLIEZO es un joven filosófico, artista y creador. Explora el universo de Yamanliezo.">
-<meta name="keywords" content="YAMANLIEZO, yamanliezo, joven filosofico yamanliezo">
-<meta name="author" content="YAMANLIEZO">
-
-<!-- Para que Google te reconozca -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "YAMANLIEZO",
-  "alternateName": "yamanliezo",
-  "description": "Joven filosófico yamanliezo",
-  "url": "https://yamanliezo.vercel.app",
-  "sameAs": [
-    "https://sites.google.com/view/yamanliezo-el-inicio"
-  ]
-}
-</script>
-
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{height:100vh;overflow:hidden;font-family:Arial;background:#000}
+body{height:100vh;overflow:hidden;background:#000;font-family:Arial}
 video#bg{
 position:fixed;
 top:0;left:0;
@@ -37,7 +18,7 @@ z-index:-2;
 position:fixed;
 top:0;left:0;
 width:100%;height:100%;
-background:radial-gradient(circle at center, rgba(45,11,90,0.5) 0%, rgba(0,0,0,0.9) 80%);
+background:linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(26,0,51,0.4) 100%);
 z-index:-1;
 }
 .contenido{
@@ -48,19 +29,61 @@ justify-content:center;
 align-items:center;
 color:white;
 text-align:center;
-padding:20px;
+z-index:2;
+position:relative;
 }
-h1{font-size:5.5rem;letter-spacing:18px;font-weight:900;text-shadow:0 0 40px #8a2be2}
-p{font-size:1.4rem;margin-top:12px;letter-spacing:4px;opacity:.85;font-style:italic}
-a{margin-top:40px;padding:14px 42px;border:1px solid #8a2be2;color:white;text-decoration:none;letter-spacing:4px;transition:.3s;background:rgba(0,0,0,0.4)}
-a:hover{background:#8a2be2;box-shadow:0 0 25px #8a2be2}
+h1{font-size:5.5rem;letter-spacing:18px;font-weight:900;text-shadow:0 0 40px #8a2be2;margin:0}
+p{font-size:1.3rem;margin-top:10px;letter-spacing:4px;opacity:.9;font-style:italic}
+.btn-audio{
+margin-top:30px;
+padding:13px 32px;
+background:rgba(0,0,0,0.5);
+border:1px solid #8a2be2;
+color:white;
+font-size:1rem;
+letter-spacing:3px;
+cursor:pointer;
+transition:.3s;
+border-radius:30px;
+backdrop-filter: blur(5px);
+}
+.btn-audio:hover{background:#8a2be2;box-shadow:0 0 20px #8a2be2;transform:scale(1.05)}
+.link{margin-top:15px;color:white;opacity:.6;text-decoration:none;font-size:.9rem;letter-spacing:2px}
 </style>
 </head>
 <body>
 
 <video id="bg" autoplay loop muted playsinline>
-<source src="https://videos.pexels.com/video-files/3048527/3048527-uhd_2560_1440_30fps.mp4" type="video/mp4">
+<source src="https://files.catbox.moe/imbkg0.mp4" type="video/mp4">
 </video>
+
 <div class="overlay"></div>
 
-<div class
+<div class="contenido">
+<h1>YAMANLIEZO</h1>
+<p>joven filosófico yamanliezo</p>
+<button class="btn-audio" id="audioBtn" onclick="toggleAudio()">🔊 ACTIVAR AUDIO</button>
+<a class="link" href="https://sites.google.com/view/yamanliezo-el-inicio">entrar a mi mundo</a>
+</div>
+
+<script>
+let video = document.getElementById('bg');
+let btn = document.getElementById('audioBtn');
+let activo = false;
+function toggleAudio(){
+ if(!activo){
+   video.muted = false;
+   video.volume = 1;
+   video.play();
+   btn.innerHTML = "🔇 SILENCIAR";
+   activo = true;
+ } else {
+   video.muted = true;
+   btn.innerHTML = "🔊 ACTIVAR AUDIO";
+   activo = false;
+ }
+}
+</script>
+
+</body>
+</html>
