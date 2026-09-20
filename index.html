@@ -3,67 +3,33 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="google-site-verification" content="DrW5rRgPKxP2WoG1Mwqv7qo3utvpRcgI-oA9Nc2SZ3A" />
 <title>YAMANLIEZO</title>
 <style>
-body{margin:0;background:#000;color:#fff;height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;flex-direction:column;font-family:Arial}
+body{margin:0;background:#000;color:#fff;height:100vh;overflow:hidden;display:flex;justify-content:center;align-items:center;flex-direction:column;}
 #flash{
-  position:fixed;top:38%;left:50%;transform:translate(-50%,-50%);
-  font-size:24px;font-style:italic;letter-spacing:3px;
-  color:#fff;text-shadow:0 0 20px #fff;
-  opacity:0;transition:opacity 0.4s;
-  text-align:center;width:90%;pointer-events:none;
+position:fixed;top:30%;left:50%;transform:translate(-50%,-50%);
+font-size:20px;font-style:italic;letter-spacing:3px;
+color:#fff;text-shadow:0 0 20px #fff;
+opacity:0;transition:opacity 0.4s;
+text-align:center;width:90%;pointer-events:none;
 }
-#flash.activa{opacity:1}
+#flash.activa{opacity:1;}
 </style>
 </head>
 <body>
 
-<h1 style="letter-spacing:12px;margin:0">YAMANLIEZO</h1>
-<p style="color:#d8b4fe;margin:8px 0 0 0;font-size:14px">Un pensamiento más que nadie ve, solo tú</p>
+<h1 style="letter-spacing:12px;margin:0;">YAMANLIEZO</h1>
+<p style="color:#88b4fe;margin:8px 0 0;font-size:14px;">"Un pensamiento más que nadie ve, solo tú"</p>
 
 <div id="flash"></div>
 
-<a href="https://sites.google.com/view/yamanliezo-el-inicio" style="margin-top:120px;border:1px solid #fff;color:#fff;padding:14px 40px;text-decoration:none;letter-spacing:5px;background:rgba(255,255,255,0.1)">ENTRAR A LA WEB</a>
+<a href="https://sites.google.com/view/yamanliezo-el-inicio" style="margin-top:120px;border:1px solid #fff;color:#fff;padding:10px 20px;text-decoration:none;">ENTRAR</a>
 
 <audio id="audio" autoplay loop>
-  <source src="https://files.catbox.moe/7hmxeg.mp4" type="audio/mp4">
-  <source src="https://files.catbox.moe/7hmxeg.mp4" type="video/mp4">
+<source src="https://files.catbox.moe/7hnxeg.mp4" type="audio/mp4">
+<source src="https://files.catbox.moe/7hnxeg.mp4" type="video/mp4">
 </audio>
 
 <script>
-const frases=["¿quién eres?","¿qué es nada?","¿qué es todo?","¿te conoces a ti mismo?","¿qué buscas?","solo sé que nada sé","¿a dónde vas?","¿qué es real?"];
-let i=0;
-const flash=document.getElementById("flash");
-
-function mostrarFlash(){
-  flash.classList.remove("activa");
-  setTimeout(()=>{
-    flash.textContent=frases[i];
-    flash.classList.add("activa");
-    setTimeout(()=>{flash.classList.remove("activa");},1800);
-    i=(i+1)%frases.length;
-  },400);
-}
-setInterval(mostrarFlash,2600);
-mostrarFlash();
-
-// SONIDO SIN TOCAR - truco autoplay
-const aud=document.getElementById("audio");
-aud.volume=0.8;
-aud.muted=false;
-
-function forzarSonido(){
-  aud.play().catch(()=>{});
-}
-window.addEventListener("load",()=>{
-  forzarSonido();
-  setTimeout(forzarSonido,500);
-  setTimeout(forzarSonido,1500);
-  setTimeout(forzarSonido,3000);
-});
-// si el navegador lo bloquea, al mover el mouse se activa solo
-document.addEventListener("mousemove",forzarSonido,{once:true});
-</script>
-
-</body>
-</html>
+const frases=["¿quién eres?","¿qué es nada?","¿qué es todo?
