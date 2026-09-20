@@ -5,41 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YAMANLIEZO</title>
 <style>
-body{margin:0;background:#000;height:100vh;overflow:hidden;font-family:Arial}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;height:100vh;overflow:hidden;font-family:Arial}
 #bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1}
-.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
-h1{font-size:65px;letter-spacing:15px;margin:0;font-weight:900;text-shadow:0 0 30px #8a2be2}
-p{letter-spacing:4px;margin-top:10px;font-style:italic;font-size:1.2rem}
-.btn{margin-top:30px;padding:14px 45px;border:1px solid white;color:white;text-decoration:none;letter-spacing:4px;background:rgba(0,0,0,0.3)}
-</style>
-</head>
-<body>
-
-<video id="bg" autoplay loop playsinline>
-<source src="https://files.catbox.moe/src.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="box">
-<h1>YAMANLIEZO</h1>
-<p>joven filósofo</p>
-<a class="btn" href="https://sites.google.com/view/yamanliezo-el-inicio">ENTRAR A LA WEB</a>
-</div>
-
-<script>
-let v=document.getElementById('bg');
-v.volume=1;
-v.muted=false;
-function sonar(){
- v.muted=false;
- v.play().catch(()=>{});
-}
-window.addEventListener('load',sonar);
-document.addEventListener('click',sonar,{once:true});
-setTimeout(sonar,500);
-</script>
-
-</body>
-</html>
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:1}
+.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;padding:20px}
+h1{font-size:5rem;letter-spacing:12px;font-weight:900;line-height:0.9;text-shadow:0 0 30px #8a2be2, 0 0 60px #8a2be2}
+.frase{margin-top:18px;font-size:1.3rem;letter-spacing:3px;font-style:italic;opacity:0.9;max-width:500px;line-height:1.3}
+.btn{margin-top:35px;padding:16px 55px;border:1px solid white;color:white;text-decoration:none;letter-spacing:6px;background:rgba(0,0,0,0.4);backdrop-filter:blur(4px);transition:0.3s}
+.btn:hover{background:white;color:black}
+#activar{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:5;background:rgba(0,0,0,0.6
