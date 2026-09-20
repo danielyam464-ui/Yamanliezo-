@@ -5,19 +5,41 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>YAMANLIEZO</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{background:#000;font-family:Arial;overflow-x:hidden;color:white}
-.hero{position:relative;height:100vh;width:100%;overflow:hidden}
-#bg{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.overlay{position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.6);z-index:1}
-.box{position:absolute;top:0;left:0;width:100%;height:100%;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;pointer-events:none}
-h1{font-size:60px;letter-spacing:15px;margin:0;text-shadow:0 0 20px #8a2be2;pointer-events:auto}
-.sub{letter-spacing:4px;margin-top:10px;font-style:italic}
-.btn-principal{margin-top:30px;padding:14px 40px;border:1px solid white;color:white;text-decoration:none;letter-spacing:4px;pointer-events:auto;background:rgba(0,0,0,0.3);transition:.3s}
-.btn-principal:hover{background:white;color:black}
-#frases{position:absolute;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none}
-.frase{position:absolute;color:rgba(255,255,255,0.85);font-style:italic;text-shadow:0 0 8px #8a2be2;animation:flotar 4s forwards}
-@keyframes flotar{0%{opacity:0;transform:translateY(20px)}15%{opacity:1}80%{opacity:1}100%{opacity:0;transform:translateY(-30px)}}
+body{margin:0;background:#000;height:100vh;overflow:hidden;font-family:Arial}
+#bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1}
+.box{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
+h1{font-size:65px;letter-spacing:15px;margin:0;font-weight:900;text-shadow:0 0 30px #8a2be2}
+p{letter-spacing:4px;margin-top:10px;font-style:italic;font-size:1.2rem}
+.btn{margin-top:30px;padding:14px 45px;border:1px solid white;color:white;text-decoration:none;letter-spacing:4px;background:rgba(0,0,0,0.3)}
+</style>
+</head>
+<body>
 
-/* SECCION BUZOS */
-.buzos{background:#0a0014
+<video id="bg" autoplay loop playsinline>
+<source src="https://files.catbox.moe/src.mp4" type="video/mp4">
+</video>
+
+<div class="overlay"></div>
+
+<div class="box">
+<h1>YAMANLIEZO</h1>
+<p>joven filósofo</p>
+<a class="btn" href="https://sites.google.com/view/yamanliezo-el-inicio">ENTRAR A LA WEB</a>
+</div>
+
+<script>
+let v=document.getElementById('bg');
+v.volume=1;
+v.muted=false;
+function sonar(){
+ v.muted=false;
+ v.play().catch(()=>{});
+}
+window.addEventListener('load',sonar);
+document.addEventListener('click',sonar,{once:true});
+setTimeout(sonar,500);
+</script>
+
+</body>
+</html>
