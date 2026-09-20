@@ -8,39 +8,34 @@
 *{margin:0;padding:0;box-sizing:border-box}
 body{background:#000;height:100vh;overflow:hidden;font-family:Arial}
 #bg{position:fixed;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:0}
-.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.45);z-index:1}
-.contenido{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center}
-h1{font-size:6rem;letter-spacing:18px;font-weight:900;text-shadow:0 0 30px #8a2be2}
-.sub{font-size:1.4rem;letter-spacing:4px;margin-top:10px;font-style:italic}
-.btn{margin-top:40px;padding:15px 50px;border:1px solid white;color:white;text-decoration:none;letter-spacing:5px;background:rgba(0,0,0,0.3)}
+.overlay{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.55);z-index:1}
+.contenido{position:fixed;top:0;left:0;width:100%;height:100%;z-index:3;display:flex;flex-direction:column;justify-content:center;align-items:center;color:white;text-align:center;pointer-events:none}
+h1{font-size:6rem;letter-spacing:18px;font-weight:900;text-shadow:0 0 40px #8a2be2;pointer-events:auto}
+.sub{font-size:1.4rem;letter-spacing:5px;margin-top:8px;font-style:italic;opacity:.9}
+.btn{margin-top:40px;padding:15px 50px;border:1px solid white;color:white;text-decoration:none;letter-spacing:5px;background:rgba(0,0,0,0.4);backdrop-filter:blur(3px);pointer-events:auto;transition:.3s}
+.btn:hover{background:white;color:black}
+
+#frases{position:fixed;top:0;left:0;width:100%;height:100%;z-index:2;pointer-events:none;overflow:hidden}
+
+.frase{
+position:absolute;
+color:rgba(255,255,255,0.75);
+font-size:1.1rem;
+letter-spacing:2px;
+font-style:italic;
+text-shadow:0 0 10px #8a2be2;
+animation: flotar 4s ease-in-out forwards;
+white-space:nowrap;
+}
+
+@keyframes flotar{
+0%{opacity:0; transform:translateY(20px) scale(0.8); filter:blur(4px)}
+15%{opacity:1; filter:blur(0px)}
+70%{opacity:1}
+100%{opacity:0; transform:translateY(-40px) scale(1.1); filter:blur(3px)}
+}
 </style>
 </head>
 <body>
 
-<video id="bg" autoplay loop muted playsinline controlslist="nodownload" crossorigin="anonymous">
-<source src="https://files.catbox.moe/imbkg0.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
-
-<div class="contenido">
-<h1>YAMANLIEZO</h1>
-<div class="sub">joven filósofo</div>
-<a class="btn" href="https://sites.google.com/view/yamanliezo-el-inicio">ENTRAR A LA WEB</a>
-</div>
-
-<script>
-let v = document.getElementById('bg');
-v.addEventListener('canplay', ()=>{
- v.muted = false;
- v.volume = 1;
- v.play();
-});
-document.body.addEventListener('click', ()=>{
- v.muted = false;
- v.play();
-}, {once:true});
-</script>
-
-</body>
-</html>
+<video id="bg
